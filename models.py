@@ -5,9 +5,16 @@ class Pelicula:
         self.__nombre = nombre
 
     #crear método __str__
-
+    def __str__(self):
+        str1 = f'Pelicula: {self.__nombre}'
+        return str1
+    
     #crear metodos de acceso: mostrar el atributo nombre y modificar
-
+    def nombre(self):
+        return self.__nombre
+    
+    def nombre(self, valor):
+        self.__nombre = valor
 class CatalogoPelicula:
     
     def __init__(self, nombre):
@@ -21,8 +28,11 @@ class CatalogoPelicula:
     def listar_peliculas(self):
         # abrir el archivo con with 
         # imprimir lo que hay en el archivo ( arhivo.read() )
-        pass
-
+         with open(self.ruta_archivo, 'r') as archivo:
+            contenido = archivo.read()
+            print(contenido)
+            archivo.close
+            
     def eliminar_peliculas(self):
         os.remove(self.ruta_archivo)
         print(f'Archivo eliminado: {self.ruta_archivo}')
