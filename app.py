@@ -16,8 +16,17 @@ while opcion != 4:
     print("3. Eliminar catálogo películas")
     print("4. Salir")
 
-    opcion = int(input("\nEscribe tu opción ( del 1 al 4):"))
-            
+    opcion = input("\nEscribe tu opción ( del 1 al 4):")
+    while opcion.isdigit() == False or int(opcion) not in opciones:   
+         print("\nOpciones:\n")
+         print("1. Agregar Pelicula")
+         print("2. Listar Pelicula")
+         print("3. Eliminar catálogo películas")
+         print("4. Salir")
+        
+         opcion = input("\nEscribe tu opción ( del 1 al 4):")
+
+    opcion = int(opcion)        
         
     if opcion == 1:
         try:
