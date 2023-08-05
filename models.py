@@ -10,11 +10,14 @@ class Pelicula:
         return str1
     
     #crear metodos de acceso: mostrar el atributo nombre y modificar
+    @property
     def nombre(self):
         return self.__nombre
     
+    @nombre.setter
     def nombre(self, valor):
         self.__nombre = valor
+        print (f'se agrego {valor}')
 class CatalogoPelicula:
     
     def __init__(self, nombre):
@@ -24,15 +27,16 @@ class CatalogoPelicula:
     def agregar_pelicula(self, pelicula):
         with open(self.ruta_archivo, 'a') as archivo:
             archivo.write(f'{pelicula.nombre}\n')
+            
 
     def listar_peliculas(self):
         # abrir el archivo con with 
         # imprimir lo que hay en el archivo ( arhivo.read() )
          with open(self.ruta_archivo, 'r') as archivo:
-            contenido = archivo.read()
-            print(contenido)
+            print(archivo.read())
             archivo.close
             
+
     def eliminar_peliculas(self):
         os.remove(self.ruta_archivo)
         print(f'Archivo eliminado: {self.ruta_archivo}')
