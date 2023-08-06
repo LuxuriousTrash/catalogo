@@ -1,4 +1,5 @@
 import os
+import msvcrt
 
 class Pelicula:
     def __init__(self,nombre):
